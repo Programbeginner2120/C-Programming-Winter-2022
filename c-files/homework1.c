@@ -45,7 +45,8 @@ char * fromDecimalToBinary(int num){
             ch = '0';
         strncat(res, &ch, 1);
     }
-    return (char *)res;
+    char * rv = res; // Since I used a pre allocated array, making char pointer equal to the pre allocated array
+    return rv;
 }
 
 

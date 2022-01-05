@@ -1,13 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-
-/*
-Struct that serves as our ArrayList object
-*/
-typedef struct {
-    int * array;
-    size_t size;
-} ArrayList;
+#include "ArrayList.h"
 
 /*
 Creates an (instance) of our ArrayList struct, allocating memory for the int * array member and setting size_t size to the
@@ -65,38 +56,4 @@ Function that prints the elements present in our ArrayList.
 void printElements(ArrayList * list){
     for (int i = 0; i < list->size; i++)
         printf("%d\n", list->array[i]);
-}
-
-
-int main(){
-
-    ArrayList * list = (ArrayList * )malloc(sizeof(ArrayList));
-
-    createArrayList(list, 0);
-
-    add(list, 1);
-    add(list, 5);
-    add(list, 99);
-
-    size_t arrSize= size(list);
-    printf("Size of array: %zu\n", arrSize);
-
-    printElements(list);
-
-    int res1 = get(list, 0);
-    printf("res1: %d\n", res1);
-    int res2 = get(list, 55);
-    printf("res2: %d\n", res2);
-
-    set(list, 2, 101);
-
-    printElements(list);
-
-    set(list, 55, 102);
-
-    printElements(list);
-
-
-    deleteArrayList(list);
-    free(list);
 }
